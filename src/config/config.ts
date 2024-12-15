@@ -5,7 +5,7 @@ export const browserConfig: BrowserConfig = {
     headless: false,
     defaultViewport: null,
     args: [
-        "--app=https://laracasts.com",
+        "--app=https://laracasts.com/me",
         "--window-size=1280,800",
         "--center-window",
         "--disable-infobars",
