@@ -5,9 +5,10 @@ export interface IAuthService {
     logout(): Promise<void>;
 }
 
-export interface IVideoService {
-    toggleFullscreen(): Promise<void>;
-    setQuality(quality: string): Promise<void>;
+export interface IVideoPlayerService {
+    registerFullscreenHandler(): Promise<void>;
+    handleFullscreen(page: any): Promise<void>;
+    init(): Promise<void>;
 }
 
 export interface IPageService {

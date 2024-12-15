@@ -1,17 +1,52 @@
-import { IVideoService } from "../interfaces/Services";
 import { Page } from "../core/Page";
+import { State } from "../core/State";
+import { IVideoPlayerService } from "../interfaces/Services";
 
-export class VideoService implements IVideoService {
-    constructor(private page: Page) {}
+export class VideoPlayerService implements IVideoPlayerService {
+    private isProcessing = false;
 
-    public async toggleFullscreen(): Promise<void> {
-        const puppeteerPage = await this.page.getPage();
-        await puppeteerPage.click(".vjs-fullscreen-control");
+    constructor(private page: Page, private state: State = State.getInstance()) {}
+
+    public async init(): Promise<void> {
+        await this.registerFullscreenHandler();
     }
 
-    public async setQuality(quality: string): Promise<void> {
-        const puppeteerPage = await this.page.getPage();
-        await puppeteerPage.click(".vjs-quality-selector");
-        await puppeteerPage.click(`[data-quality="${quality}"]`);
+    public async registerFullscreenHandler(): Promise<void> {
+        await this.page.registerNavCallback(async (page) => {
+            if (this.isProcessing || this.state.get("fullscreenClicked")) {
+                return;
+            }
+
+            try {
+                this.isProcessing = true;
+                await this.handleFullscreen(page);
+            } catch (error) {
+                console.error("Error in fullscreen handler:", error);
+            } finally {
+                this.isProcessing = false;
+            }
+        });
+    }
+
+    public async handleFullscreen(page: any): Promise<void> {
+        await page.waitForSelector("iframe");
+        console.log("iframe is ready. Loading iframe content");
+
+        const elementHandle = await page.$("iframe");
+        const frame = await elementHandle?.contentFrame();
+
+        if (!frame) {
+            console.log("No frame found");
+            return;
+        }
+
+        console.log("filling form in iframe");
+        const fullscreenButton = await frame.waitForSelector("#fullscreen-control-bar-button");
+
+        if (!this.state.get("fullscreenClicked")) {
+            await fullscreenButton?.click();
+            this.state.set("fullscreenClicked", true);
+            console.log("Fullscreen mode activated");
+        }
     }
 }
