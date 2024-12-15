@@ -11,5 +11,8 @@ export interface BrowserConfig {
     defaultViewport: {
         width: number;
         height: number;
-    };
+    } | null;
+    args?: string[];
+    ignoreDefaultArgs?: string[];
+    userDataDir?: string;
 }

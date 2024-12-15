@@ -10,7 +10,12 @@ export class Page implements IPageService {
     public async getPage(): Promise<PuppeteerPage> {
         if (!this.page) {
             const browserInstance = await this.browser.getBrowser();
-            this.page = await browserInstance.newPage();
+            const pages = await browserInstance.pages();
+            this.page = pages[0];
+
+            if (!this.page) {
+                throw new Error("No initial page found");
+            }
         }
         return this.page;
     }

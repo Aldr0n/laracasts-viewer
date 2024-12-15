@@ -1,11 +1,25 @@
+import path from "path";
 import { BrowserConfig, LaracastsConfig } from "../interfaces/Config";
 
 export const browserConfig: BrowserConfig = {
     headless: false,
-    defaultViewport: {
-        width: 1920,
-        height: 1080,
-    },
+    defaultViewport: null,
+    args: [
+        "--app=https://laracasts.com",
+        "--window-size=1280,800",
+        "--center-window",
+        "--disable-infobars",
+        "--disable-notifications",
+        "--no-default-browser-check",
+        "--disable-session-crashed-bubble",
+        "--disable-translate",
+        "--disable-features=TranslateUI",
+        "--disable-save-password-bubble",
+        "--disable-extensions",
+        "--disable-default-apps",
+    ],
+    ignoreDefaultArgs: ["--enable-automation"],
+    userDataDir: path.join(process.cwd(), "dist", "user_data"),
 };
 
 export const laracastsConfig: LaracastsConfig = {

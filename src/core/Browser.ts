@@ -20,6 +20,7 @@ export class Browser {
         if (this.browser) return;
 
         this.browser = await puppeteer.launch(browserConfig);
+
         this.status = "running";
     }
 

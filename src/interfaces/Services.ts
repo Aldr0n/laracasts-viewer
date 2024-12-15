@@ -13,6 +13,6 @@ export interface IVideoService {
 }
 
 export interface IPageService {
-    getPage(): Promise<Page>;
+    getPage(): Promise<Page | null>;
     closePage(): Promise<void>;
 }
