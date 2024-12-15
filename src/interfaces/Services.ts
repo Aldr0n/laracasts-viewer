@@ -6,8 +6,6 @@ export interface IAuthService {
 }
 
 export interface IVideoService {
-    play(): Promise<void>;
-    pause(): Promise<void>;
     toggleFullscreen(): Promise<void>;
     setQuality(quality: string): Promise<void>;
 }

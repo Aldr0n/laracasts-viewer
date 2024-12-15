@@ -4,16 +4,6 @@ import { Page } from "../core/Page";
 export class VideoService implements IVideoService {
     constructor(private page: Page) {}
 
-    public async play(): Promise<void> {
-        const puppeteerPage = await this.page.getPage();
-        await puppeteerPage.click(".vjs-play-control");
-    }
-
-    public async pause(): Promise<void> {
-        const puppeteerPage = await this.page.getPage();
-        await puppeteerPage.click(".vjs-play-control");
-    }
-
     public async toggleFullscreen(): Promise<void> {
         const puppeteerPage = await this.page.getPage();
         await puppeteerPage.click(".vjs-fullscreen-control");
