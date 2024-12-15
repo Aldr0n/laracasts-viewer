@@ -26,4 +26,11 @@ export class Page implements IPageService {
             this.page = null;
         }
     }
+
+    public async registerNavCallback(callback: (page: PuppeteerPage) => void): Promise<void> {
+        const page = await this.getPage();
+        page.on("framenavigated", () => {
+            callback(page);
+        });
+    }
 }
