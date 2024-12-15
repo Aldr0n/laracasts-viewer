@@ -17,9 +17,11 @@ export const browserConfig: BrowserConfig = {
         "--disable-save-password-bubble",
         "--disable-extensions",
         "--disable-default-apps",
+        "--hide-scrollbars",
     ],
     ignoreDefaultArgs: ["--enable-automation"],
     userDataDir: path.join(process.cwd(), "dist", "user_data"),
+    executablePath: path.join(process.cwd(), "bin", "chrome.exe"),
 };
 
 export const laracastsConfig: LaracastsConfig = {

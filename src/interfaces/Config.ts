@@ -15,4 +15,5 @@ export interface BrowserConfig {
     args?: string[];
     ignoreDefaultArgs?: string[];
     userDataDir?: string;
+    executablePath?: string;
 }
