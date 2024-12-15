@@ -1,0 +1,24 @@
+{
+    "name": "laracasts-viewer",
+    "version": "1.0.0",
+    "description": "A pupeteer wrapper to view laracasts with auto fullscreen",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "tsc -w",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "aldr0n",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "puppeteer": "^23.10.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/puppeteer": "^7.0.0",
+        "typescript": "^5.0.0"
+    }
+}
