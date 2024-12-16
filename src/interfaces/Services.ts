@@ -6,9 +6,8 @@ export interface IAuthService {
 }
 
 export interface IVideoPlayerService {
-    registerFullscreenHandler(): Promise<void>;
-    handleFullscreen(page: any): Promise<void>;
-    init(): Promise<void>;
+    activateFullscreen(page: any): Promise<void>;
+    waitForEpisodeFinish(page: any): Promise<void>;
 }
 
 export interface IPageService {
