@@ -10,7 +10,7 @@ export class VideoPlayerService implements IVideoPlayerService {
     constructor(private state: State = State.getInstance()) {}
 
     public async activateFullscreen(page: PuppeteerPage): Promise<void> {
-        if (this.fullScreenProcess || this.state.get("fullscreenClicked")) {
+        if (this.fullScreenProcess || !this.state.get("autonav")) {
             return;
         }
 
@@ -27,9 +27,9 @@ export class VideoPlayerService implements IVideoPlayerService {
 
         const fullscreenButton = await contentFrame.waitForSelector("#fullscreen-control-bar-button");
 
-        if (!this.state.get("fullscreenClicked")) {
+        if (!this.state.get("fullscreen")) {
             await fullscreenButton?.click();
-            this.state.set("fullscreenClicked", true);
+            this.state.set("fullscreen", true);
             this.fullScreenProcess = false;
         }
     }
