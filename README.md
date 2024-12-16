@@ -1,6 +1,6 @@
 # Laracasts Viewer
 
-A Puppeteer-based chromium wrapper to enhance Laracasts viewing experience with automatic fullscreen functionality and faster episode navigation. Solely built for testing.
+A Puppeteer-based chromium wrapper to enhance Laracasts viewing experience with automatic fullscreen functionality and faster episode navigation. Solely built as a proof of concept.
 
 ## Features
 
