@@ -13,7 +13,6 @@
     "author": "aldr0n",
     "license": "ISC",
     "dependencies": {
-        "dotenv": "^16.4.7",
         "puppeteer": "^23.10.4"
     },
     "devDependencies": {
