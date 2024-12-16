@@ -33,4 +33,8 @@ export class Page implements IPageService {
             callback(page);
         });
     }
+
+    public async getPuppeteerPage(): Promise<PuppeteerPage> {
+        return await this.getPage();
+    }
 }
