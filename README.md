@@ -1,6 +1,6 @@
 # Laracasts Viewer
 
-A Puppeteer-based chromium wrapper to enhance Laracasts viewing experience with automatic fullscreen functionality and faster episode navigation.
+A Puppeteer-based chromium wrapper to enhance Laracasts viewing experience with automatic fullscreen functionality and faster episode navigation. Solely built as a proof of concept.
 
 ## Features
 
@@ -14,9 +14,9 @@ A Puppeteer-based chromium wrapper to enhance Laracasts viewing experience with 
 
 ## Installation
 
-1. Clone the repository:
-   git clone https://github.com/aldr0n/laracasts-viewer.git
-   cd laracasts-viewer
+1. Clone the repository:\
+   git clone https://github.com/aldr0n/laracasts-viewer.git<br />
+   cd laracasts-viewer<br />
 
 2. Install dependencies:
    npm install
