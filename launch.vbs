@@ -1,0 +1,1 @@
+CreateObject("WScript.Shell").Run "npx tsx src/index.ts", 0, False
